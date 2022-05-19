@@ -4,7 +4,14 @@ class KeysController {
   public function index()
   {
     global $db;
-    $data = $db->keys('*');
+    $keys = $db->keys('*');
+    $data = [];
+
+    foreach ($keys as $key) {
+      $value = $db->get($key);
+      $data[$key] = $value;
+    }
+
     $result = [
       'status' => true,
       'code' => 200,

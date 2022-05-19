@@ -1,6 +1,7 @@
 <?php
 
 header('Content-Type: application/json');
+header("Access-Control-Allow-Origin: *");
 
 require '../src/router.php';
 require '../src/redis.php';
