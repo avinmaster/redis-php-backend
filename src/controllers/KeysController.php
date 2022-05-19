@@ -13,8 +13,24 @@ class KeysController {
     return json_encode($result);
   }
 
-  // public function store()
-  // {
-  //   return ;
-  // }
+  public function delete($key)
+  {
+    global $db;
+
+    try {
+      $db->delete($key);
+      $result = [
+        'status' => true,
+        'code' => 200
+      ];
+    } catch (Exception $e) {
+      $result = [
+        'status' => false,
+        'code' => 500,
+        'data' => ("Can't delete key: " . $e->getMessage())
+      ];
+    }
+
+    return json_encode($result);
+  }
 }
