@@ -1,1 +1,1 @@
-Backend for TA.
+Backend for Redis based API.
